@@ -1,0 +1,17 @@
+server:
+  port: 10009
+spring:
+  application:
+    name: ZUUL-CLIENT
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10001/eureka/
+zuul:
+  routes:
+    student:
+      path: /stu/**
+      service-id: STUDENT-CLIENT
+    teacher:
+      path: /tea/**
+      service-id: TEACHER-CLIENT
