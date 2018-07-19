@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: BOOT-ADMIN
+  profiles:
+    active: insecure , secure
+  security:
+    user:
+      name: "user"
+      password: "password"
+server:
+  port: 10020
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: "user"
+      user.password: "password"
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://127.0.0.1:10002/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

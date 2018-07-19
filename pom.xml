@@ -6,7 +6,11 @@
     <groupId>com.hmb</groupId>
     <artifactId>springcloud1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>server-admin</module>
+        <module>admin-server</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>springcloud1</name>
     <description>Demo project for Spring Boot</description>

@@ -1,8 +1,16 @@
 server:
-  port: 10006
+  port: 10005
 spring:
   application:
     name: TEACHER-CLIENT
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411
 eureka:
   client:
     service-url:
@@ -10,3 +18,11 @@ eureka:
   feign:
     hystrix:
       enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

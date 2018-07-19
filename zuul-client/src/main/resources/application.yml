@@ -1,8 +1,16 @@
 server:
-  port: 10009
+  port: 10010
 spring:
   application:
     name: ZUUL-CLIENT
+  sleuth:
+      web:
+        client:
+          enabled: true
+      sampler:
+        probability: 1.0
+  zipkin:
+    base-url: http://127.0.0.1:9411
 eureka:
   client:
     service-url:
@@ -15,3 +23,11 @@ zuul:
     teacher:
       path: /tea/**
       service-id: TEACHER-CLIENT
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
